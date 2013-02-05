@@ -1,7 +1,7 @@
 <tr>
 	<td><%=anuncio.modelo %></td>
 	<td><%=anuncio.ano %></td>
-	<td><%=anuncio.valor %></td>
+	<td><%= valor_formatado anuncio.valor %></td>
 	<td><%=anuncio.descricao %></td>
 	<td><%=link_to "Editar", edit_anuncio_path(anuncio) %></td>
 </tr>		
