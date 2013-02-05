@@ -1,6 +1,8 @@
-<h1>Loja#principal</h1>
+<h1>Loja</h1>
 
-<%=notice %>
+<div id="notice">
+	<%=notice %>
+</div>
 
 <%= simple_form_for(Anuncio.new) do |f| %>
 	<div class="form-inputs">
@@ -13,5 +15,19 @@
 	<div class="form-actions">
 		<%=f.button :submit %>
 	</div>
-
 <% end %>
+
+<hr />
+
+<table>
+	<tr>
+		<th>Modelo</th>
+		<th>Ano</th>
+		<th>Valor</th>
+		<th>Descrição</th>
+	</tr>
+
+	<%=render @anuncios %>
+
+</table>
+
