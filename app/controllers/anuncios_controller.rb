@@ -8,6 +8,19 @@ class AnunciosController < ApplicationController
 		end
 
 		redirect_to root_path
+	end
 
+	def edit
+		@anuncio = Anuncio.find params[:id]
+
+	end
+
+	def update
+		anuncio = Anuncio.find params[:id]
+		if anuncio.update_attributes params[:anuncio]
+			flash[:notice] = "O anúncio foi atualizado"
+		end
+
+		redirect_to root_path
 	end
 end
