@@ -1,5 +1,9 @@
 #encoding: utf-8
 class AnunciosController < ApplicationController
+
+	before_filter :authenticate_user!
+
+
 	def create
 		anuncio = Anuncio.new params[:anuncio]
 

@@ -1,9 +1,10 @@
-<h1 id="crie_anuncio">Clique e Crie seu Anúncio</h1>
-
 <p><%=notice %></p>
 <p><%=alert %></p>
 
-<%= render "anuncios/form" %>
+<% if user_signed_in? %>
+	<h1 id="crie_anuncio">Clique e Crie seu Anúncio</h1>
+	<%= render "anuncios/form" %>
+<% end %>
 
 <hr />
 	<% if @anuncios.size > 0 %>
