@@ -4,9 +4,10 @@
 <% if user_signed_in? %>
 	<h1 id="crie_anuncio">Clique e Crie seu Anúncio</h1>
 	<%= render "anuncios/form" %>
+	<hr />
 <% end %>
 
-<hr />
+
 	<% if @anuncios.size > 0 %>
 	<h2>Lista de Anúncios</h2>
 		<table>
