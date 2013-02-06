@@ -27,6 +27,13 @@ label.collection_radio_buttons {
   margin-left: 2px;
 }
 
+#edit_anuncio input{
+  background: red;
+  padding: 5px 15px 5px 15px;
+  font:-webkit-small-control;
+  color: white;
+}
+
 .field_with_errors {
   background-color: #ff3333;
 }

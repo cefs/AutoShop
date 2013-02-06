@@ -1,0 +1,14 @@
+<h1><%="#{@anuncio.modelo} / ano: #{@anuncio.ano}" %></h1>
+
+<p>
+	<b>Descrição:</b> 
+	<%=@anuncio.descricao %></p>
+<p>
+	<b>Valor:</b>
+	<%=valor_formatado @anuncio.valor %>
+</p>
+
+<%=form_for @anuncio, html: {method: :delete} do |f| %>
+	<%=link_to "Cancelar", root_path %>
+	<%= f.submit "Confirmar" %>
+<% end %>
