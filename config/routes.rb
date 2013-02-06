@@ -1,4 +1,6 @@
 AutoShop::Application.routes.draw do
+  devise_for :users
+
   root to: "loja#principal"
   get "loja/principal"
 
@@ -9,4 +11,5 @@ AutoShop::Application.routes.draw do
   		delete "delete" => "anuncios#destroy"
   	end  
   end
+  
 end
