@@ -2,6 +2,7 @@
 class AnunciosController < ApplicationController
 
 	before_filter :authenticate_user!
+	before_filter :restrito_por_anunciante, except: :create 
 
 
 	def create
@@ -42,4 +43,13 @@ class AnunciosController < ApplicationController
 		redirect_to root_path
 	end
 
+private
+	def restrito_por_anunciante
+		anunciante = Anuncio.find(params[:id]).anunciante
+
+		unless anunciante == current_user
+			flash[:notice] = "Esse anúncio não lhe pertence!"
+			redirect_to root_path
+		end
+	end
 end
