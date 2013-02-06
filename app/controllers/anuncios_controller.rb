@@ -6,6 +6,7 @@ class AnunciosController < ApplicationController
 
 	def create
 		anuncio = Anuncio.new params[:anuncio]
+		anuncio.anunciante = current_user
 
 		if anuncio.save
 			flash[:notice] = "Anúncio foi cadastrado!"
