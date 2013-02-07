@@ -6,6 +6,7 @@ AutoShop::Application.routes.draw do
 
   resources :anuncios do
   	member do
+      put :approve
   		#GRACEFUL DEGRADATION: UM LINK E DUAS ACTIONS 
   		get :delete
   		delete "delete" => "anuncios#destroy"
