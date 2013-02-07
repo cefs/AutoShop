@@ -9,5 +9,7 @@ class LojaController < ApplicationController
 
 	@anuncio = Anuncio.new { |a| a.build_marca }
 
+	@marcas = Marca.por_nome
+
   end
 end

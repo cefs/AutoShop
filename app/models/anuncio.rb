@@ -1,5 +1,5 @@
 class Anuncio < ActiveRecord::Base
-  attr_accessible :ano, :descricao, :modelo, :valor, :marca_attributes
+  attr_accessible :ano, :descricao, :modelo, :valor, :marca_attributes, :marca_id
   belongs_to :marca
   belongs_to :anunciante, class_name: "User"
 

@@ -6,28 +6,33 @@ class AnunciosController < ApplicationController
 
 
 	def create
-		anuncio = Anuncio.new params[:anuncio]
+		anuncio = Anuncio.new params_anuncio
 		anuncio.anunciante = current_user
 
 		if anuncio.save
 			flash[:notice] = "Anúncio foi cadastrado!"
+			redirect_to root_path
+		else
+			#render_cadastro anuncio
 		end
-
-		redirect_to root_path
 	end
 
 	def edit
 		@anuncio = Anuncio.find params[:id]
+		@marcas = Marca.por_nome
 
 	end
 
 	def update
 		anuncio = Anuncio.find params[:id]
-		if anuncio.update_attributes params[:anuncio]
+		if anuncio.update_attributes params_anuncio
 			flash[:notice] = "O anúncio foi atualizado"
+			redirect_to root_path
+		else
+			#render_cadastro cadastro
 		end
 
-		redirect_to root_path
+		
 	end
 
 	def delete
@@ -63,5 +68,16 @@ private
 			#flash[:notice] = "Precisa ser administrador ou dono do anúncio!"
 			redirect_to root_path
 		end
+	end
+
+	def params_anuncio
+		parameters = params[:anuncio]
+
+		if parameters[:marca_attribuites] && !parameters[:marca_attribuites][:nome ].empty?
+			parameters.delete :marca_id
+		else
+			parameters.delete :marca_attribuites
+		end
+		parameters
 	end
 end
