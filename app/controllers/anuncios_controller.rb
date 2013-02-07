@@ -43,12 +43,20 @@ class AnunciosController < ApplicationController
 		redirect_to root_path
 	end
 
+	def aprovar
+		anuncio = Anuncio.find(params[:id])
+		if anuncio.update_attribute :aprovado, true
+			flash[:notice] = "O anúnico foi aprovado!"
+		end
+		redirect_to root_path
+	end
+
 private
 	def restrito_por_anunciante
 		anunciante = Anuncio.find(params[:id]).anunciante
-
-		unless anunciante == current_user
-			flash[:notice] = "Esse anúncio não lhe pertence!"
+		is_admin = current_user.role == "admin"
+		unless is_admin || anunciante == current_user
+			flash[:notice] = "Precisa ser administrador ou dono do anúncio!"
 			redirect_to root_path
 		end
 	end

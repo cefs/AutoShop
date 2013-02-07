@@ -11,19 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207002301) do
+ActiveRecord::Schema.define(:version => 20130207002844) do
 
   create_table "anuncios", :force => true do |t|
     t.string   "modelo"
     t.integer  "ano"
     t.text     "descricao"
     t.decimal  "valor",         :precision => 8, :scale => 2
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
     t.integer  "anunciante_id"
+    t.boolean  "aprovado",                                    :default => false
   end
 
   add_index "anuncios", ["anunciante_id"], :name => "index_anuncios_on_anunciante_id"
+  add_index "anuncios", ["aprovado"], :name => "index_anuncios_on_aprovado"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -4,9 +4,9 @@ AutoShop::Application.routes.draw do
   root to: "loja#principal"
   get "loja/principal"
 
-  resources :anuncios do
+  resources :anuncios, only: [:create, :edit, :update] do
   	member do
-      put :approve
+      put "aprovar" => "anuncios#aprovar"
   		#GRACEFUL DEGRADATION: UM LINK E DUAS ACTIONS 
   		get :delete
   		delete "delete" => "anuncios#destroy"
