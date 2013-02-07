@@ -1,6 +1,12 @@
 <p><%=notice %></p>
 <p><%=alert %></p>
 
+<p>
+	<%=link_to "Registre-se", new_user_registration_path %>
+	<%=link_to "Login", new_user_session_path %>
+</p>
+
+
 <% if user_signed_in? %>
 	<h1 id="crie_anuncio">Clique e Crie seu Anúncio</h1>
 	<%= render "anuncios/form" %>

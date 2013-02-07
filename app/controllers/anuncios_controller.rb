@@ -45,9 +45,13 @@ class AnunciosController < ApplicationController
 
 	def aprovar
 		anuncio = Anuncio.find(params[:id])
+
+		authorize! :aprovar, anuncio
+
 		if anuncio.update_attribute :aprovado, true
 			flash[:notice] = "O anúnico foi aprovado!"
 		end
+
 		redirect_to root_path
 	end
 
@@ -56,7 +60,7 @@ private
 		anunciante = Anuncio.find(params[:id]).anunciante
 		is_admin = current_user.role == "admin"
 		unless is_admin || anunciante == current_user
-			flash[:notice] = "Precisa ser administrador ou dono do anúncio!"
+			#flash[:notice] = "Precisa ser administrador ou dono do anúncio!"
 			redirect_to root_path
 		end
 	end
