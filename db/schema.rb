@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207002844) do
+ActiveRecord::Schema.define(:version => 20130207224026) do
 
   create_table "anuncios", :force => true do |t|
     t.string   "modelo"
@@ -22,10 +22,18 @@ ActiveRecord::Schema.define(:version => 20130207002844) do
     t.datetime "updated_at",                                                     :null => false
     t.integer  "anunciante_id"
     t.boolean  "aprovado",                                    :default => false
+    t.integer  "marca_id"
   end
 
   add_index "anuncios", ["anunciante_id"], :name => "index_anuncios_on_anunciante_id"
   add_index "anuncios", ["aprovado"], :name => "index_anuncios_on_aprovado"
+  add_index "anuncios", ["marca_id"], :name => "index_anuncios_on_marca_id"
+
+  create_table "marcas", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
