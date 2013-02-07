@@ -1,6 +1,11 @@
 <%= simple_form_for @anuncio || Anuncio.new do |f| %>
 	<div class="form-inputs">
 		<%=f.input :modelo %>
+
+		<%=f.simple_fields_for :marca do |m| %>
+			<%=m.input :nome, label: "Marca" %>
+		<% end %>
+
 		<%=f.input :descricao %>
 		<%=f.input :ano %>
 		<%=f.input :valor %>

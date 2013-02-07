@@ -3,6 +3,8 @@
 	<td><%=anuncio.ano %></td>
 	<td><%= valor_formatado anuncio.valor %></td>
 	<td><%=anuncio.descricao %></td>
+	<td><%=anuncio.marca && anuncio.marca.nome %></td>
+
 	<td><%=link_to "Editar", edit_anuncio_path(anuncio) %></td>
 	<td><%=link_to "Excluir", delete_anuncio_path(anuncio), 
 	method: "delete", 

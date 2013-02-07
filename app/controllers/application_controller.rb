@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
 
   	rescue_from CanCan::AccessDenied do |exception|
   		redirect_to root_url,
-  		alert: "Voce não tem permissão para acessar esse recurso"
+  		notice: "Voce não tem permissão para acessar esse recurso"
   	end
 end
