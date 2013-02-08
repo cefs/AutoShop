@@ -10,13 +10,9 @@ class LojaController < ApplicationController
 	else
 		Anuncio.aprovados
 	end
-
-	#para montar o select do formulario
-	@marcas = Marca.por_nome
-
-	#para o form_for formulario
+	
+	#mostra form para cadastrar ou para editar, com ou sem erros
 	anuncio = Anuncio.new { |a| a.build_marca }
-	render "principal", locals: {anuncio: anuncio}
-
+	render_cadastro anuncio, "principal"
   end
 end

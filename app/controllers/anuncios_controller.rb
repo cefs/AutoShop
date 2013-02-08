@@ -12,15 +12,13 @@ class AnunciosController < ApplicationController
 			flash[:notice] = "Anúncio foi cadastrado!"
 			redirect_to root_path
 		else
-			@marcas = Marca.por_nome
-			render "anuncios/cadastro", locals: {anuncio: anuncio}
+			render_cadastro :anuncio
 		end
 	end
 
 	def edit
-		@anuncio = Anuncio.find params[:id]
-		@marcas = Marca.por_nome
-
+		anuncio = Anuncio.find params[:id]
+		render_cadastro anuncio
 	end
 
 	def update
@@ -29,10 +27,8 @@ class AnunciosController < ApplicationController
 			flash[:notice] = "O anúncio foi atualizado"
 			redirect_to root_path
 		else
-			#render_cadastro cadastro
+			render_cadastro anuncio
 		end
-
-		
 	end
 
 	def delete
@@ -73,10 +69,10 @@ private
 	def params_anuncio
 		parameters = params[:anuncio]
 
-		if parameters[:marca_attribuites] && !parameters[:marca_attribuites][:nome ].empty?
+		if parameters[:marca_attributes] && !parameters[:marca_attributes][:nome ].empty?
 			parameters.delete :marca_id
 		else
-			parameters.delete :marca_attribuites
+			parameters.delete :marca_attributes
 		end
 		parameters
 	end

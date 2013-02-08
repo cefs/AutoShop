@@ -2,7 +2,6 @@
 
 	<%=f.error_notification %>
 
-
 	<div class="form-inputs">
 		<%=f.input :modelo %>
 
@@ -10,8 +9,7 @@
 			<%=m.input :nome, label: "Marca" %>
 		<% end %>
 
-	<%= select :anuncio, :marca_id, @marcas.map {|m| [m.nome, m.id]}, prompt: "ou selecione a marca:" %>
-
+	<%= select :anuncio, :marca_id, marcas.map {|m| [m.nome, m.id]}, prompt: "ou selecione a marca:" %>
 		<%=f.input :descricao %>
 		<%=f.input :ano %>
 		<%=f.input :valor %>
