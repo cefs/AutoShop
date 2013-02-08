@@ -5,6 +5,9 @@ class Anuncio < ActiveRecord::Base
 
   accepts_nested_attributes_for :marca
 
+  validates_presence_of :modelo, :descricao
+
+
   def self.aprovados
   	where aprovado: true	
   end

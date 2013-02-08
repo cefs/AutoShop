@@ -9,7 +9,8 @@
 
 <% if user_signed_in? %>
 	<h1 id="crie_anuncio">Clique e Crie seu Anúncio</h1>
-	<%= render "anuncios/form" %>
+	<%= render partial: "anuncios/form", locals: {anuncio: anuncio} %>
+	<%# render "anuncios/form", locals: {anuncio: anuncio} %>
 	<hr />
 <% end %>
 

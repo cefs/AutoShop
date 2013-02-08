@@ -4,7 +4,6 @@ class AnunciosController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :restrito_por_anunciante, except: :create 
 
-
 	def create
 		anuncio = Anuncio.new params_anuncio
 		anuncio.anunciante = current_user
@@ -13,7 +12,8 @@ class AnunciosController < ApplicationController
 			flash[:notice] = "Anúncio foi cadastrado!"
 			redirect_to root_path
 		else
-			#render_cadastro anuncio
+			@marcas = Marca.por_nome
+			render "anuncios/cadastro", locals: {anuncio: anuncio}
 		end
 	end
 
