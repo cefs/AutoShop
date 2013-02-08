@@ -1,1 +1,1 @@
---color --format-documetation
+--color --format documentation
