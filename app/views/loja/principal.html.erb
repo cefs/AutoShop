@@ -13,9 +13,6 @@
 	<hr />
 <% end %>
 
-
-	<% if @anuncios.size > 0 %>
-	<h2>Lista de Anúncios</h2>
 		<table>
 			<tr>
 				<th><%= t :modelo %></th>
@@ -29,11 +26,10 @@
 			</tr>
 
 			<%=render @anuncios %>
-			
+
 		</table>
-	<% else %>
-		<h3>Não há anúncios cadastrados!</h3>
-	<% end %>
+	
+	<h2><%=t :anuncios, count: @anuncios.size %></h2>
 
 
 	<% content_for :js do %>

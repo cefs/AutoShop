@@ -5,3 +5,8 @@ pt:
  marca: Marcas
  descricao: Descrição
  anunciante: Anunciante
+
+ anuncios:
+  zero: Nenhum anúncio
+  one:   1 anuncio
+  other: '%{count} anúncios'
