@@ -18,17 +18,18 @@
 	<h2>Lista de Anúncios</h2>
 		<table>
 			<tr>
-				<th>Modelo</th>
-				<th>Ano</th>
-				<th>Valor</th>
-				<th>Descrição</th>
-				<th>Marca</th>
+				<th><%= t :modelo %></th>
+				<th><%= t :ano %></th>
+				<th><%= t :valor %></th>
+				<th><%= t :descricao %></th>
+				<th><%= t :marca %></th>
 				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
 
 			<%=render @anuncios %>
+			
 		</table>
 	<% else %>
 		<h3>Não há anúncios cadastrados!</h3>
